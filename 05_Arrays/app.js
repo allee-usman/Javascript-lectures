@@ -10,6 +10,26 @@ let myArr1 = Array(11, 12, 13) //using constructor
 // get length of array
 // console.log(arr.length);
 
+let myName = "Ali"
+// console.log(Array.isArray(myName)); //Expected: false
+
+//convert string into array
+// console.log(Array.from(myName)); //Expected: ['A', 'l', 'i' ]
+
+//convert object into array
+// console.log(Array.from({name: "Ali Usman"})); //Expected: [] (failed to create due to key:value pairs)
+
+// make array from multiple variables
+let playerName = "Babbar Azam"
+let odiAvg = 56.9
+let jersyNumber = 56
+let teamName = "Pakistan"
+
+let playerInfo = Array.of(playerName, teamName, odiAvg, jersyNumber)
+// console.log(playerInfo); //Expected: [ 'Babbar Azam', 'Pakistan', 56.9, 56 ]
+
+
+
 //array methods
 
 // 1) slice(): return sub-array of an array without manipulating orignal array
@@ -171,6 +191,26 @@ oddArray.pop()
 // 23) concat(): instances is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array
 
 let evenArray = [0, 2, 4, 6, 8]
-let mixArray = evenArray.concat(oddArray)
-// console.log(mixArray); //Expected: mixArray[ 0, 2, 4, 6, 8, 1, 3, 5, 7, 9, 11 ]
+let mixArrayUsingConcat = evenArray.concat(oddArray)
+// console.log(mixArrayUsingConcat); //Expected: mixArray[ 0, 2, 4, 6, 8, 1, 3, 5, 7, 9, 11 ]
+
+// Alternative to concat() --> spread operator
+let mixArrayUsingSpread = [...evenArray, ...oddArray]
+// console.log(mixArrayUsingSpread); //Expected: mixArray[ 0, 2, 4, 6, 8, 1, 3, 5, 7, 9, 11 ]
+
+
+// 24) flat():  creates a new array with all sub-array elements concatenated into it recursively up to the specified depth
+let unflattedArray = [1, 2, [23, 5, 6], 2, [1, [5, 3, 9]], 19]
+// console.log(unflattedArray.flat(Infinity));  //it will flat the array upto n-th level
+/* 
+Expected Output:
+[
+    1, 2, 23, 5, 6,
+    2, 1,  5, 3, 9,
+    19
+] 
+*/
+// console.log(unflattedArray.flat(1));  //Expected: [ 1, 2, 23, 5, 6, 2, 1, [ 5, 3, 9 ], 19 ]
+
+// console.log(unflattedArray.flat(0));  //no effect
 
