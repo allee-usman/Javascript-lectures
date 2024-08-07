@@ -137,5 +137,40 @@ const words = ['spray', 'elite', 'exuberant', 'destruction', 'present'];
 const numbers = oddArray.filter(isLargeNumber)
 const result = words.filter((word) => word.length > 6);
 
-console.log(result); // Expected output: Array ["exuberant", "destruction", "present"]
-console.log(numbers); // Expected output: Array [ 11, 13, 15, 11 ]
+// console.log(result); // Expected output: Array ["exuberant", "destruction", "present"]
+// console.log(numbers); // Expected output: Array [ 11, 13, 15, 11 ]
+
+// 20) fill(): changes all elements within a range of indices in an array to a static value. It returns the modified array
+
+// arr.fill(1, 3) //it will changes arr[ 1, 2, 3, 4, 5 ] to arr[ 1, 2, 3, 1, 1 ]
+// console.log(arr);
+
+// arr.fill(9, 1, 4) //it will changes arr[ 1, 2, 3, 1, 1 ] to arr[ 1, 9, 9, 9, 1 ]
+// console.log(arr);
+
+// arr.fill(6) //it will changes arr[ 1, 2, 3, 1, 1 ] to arr[ 6, 6, 6, 6, 6 ]
+// console.log(arr);
+
+// 21) every(): tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value
+const isOddNumber = (number) => number % 2 !== 0
+// console.log(oddArray.every(isOddNumber)); //Expected: true
+
+
+// 22) copyWithin(): shallow copies part of this array to another location in the same array and returns this array without modifying its length
+let newOddArray = oddArray.copyWithin()
+// console.log("Orignal Array: ", oddArray); //Expected: [ 1, 3, 5, 7, 9, 11, 13, 15, 11 ]
+// console.log("Copied Array: ", newOddArray);
+//changing orignal array
+oddArray.pop()
+oddArray.pop()
+oddArray.pop()
+
+// console.log("3x pop() called, now orignal array is: ", oddArray); //Expected: [ 1, 3, 5, 7, 9, 11 ]
+// console.log("Copied Array: ", newOddArray); //Expected: [ 1, 3, 5, 7, 9, 11 ]
+
+// 23) concat(): instances is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array
+
+let evenArray = [0, 2, 4, 6, 8]
+let mixArray = evenArray.concat(oddArray)
+// console.log(mixArray); //Expected: mixArray[ 0, 2, 4, 6, 8, 1, 3, 5, 7, 9, 11 ]
+
